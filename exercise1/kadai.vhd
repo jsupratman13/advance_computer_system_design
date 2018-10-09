@@ -26,9 +26,9 @@ begin
     TEMP(0) <= not X(0);
 
     i0: HIGH3 port map (
-        A=>TEMP(2), B=>TEMP(1), C=>TEMP(0) Y=>w0) );
+        A=>TEMP(2), B=>TEMP(1), C=>TEMP(0), Y=>w0 );
 
     i1: DECODER port map (
-        DATA=>w0, LEDDSP(6)=>Y(6), LEDDSP(5)=>Y(5), LEDDSP(4)=>Y(4), LEDDSP(3)=>Y(3), LEDDSP(2)=>Y(2), LEDDSP(1)=>Y(1), LEDDSP(0)=>Y(0) );
+        DATA=>w0, LEDDSP=>Y );
 
 end RTL;
