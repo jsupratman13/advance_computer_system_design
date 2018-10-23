@@ -11,9 +11,9 @@ architecture RTL of DECODER is
 begin
     process (DATA) begin
         case DATA is
-            when "0" => LEDDSP <= "1000111";
-            when "1" => LEDDSP <= "0001001";
-            when others => LEDDSP <= "000000";
+            when    '0' => LEDDSP <= "1000111";
+            when    '1' => LEDDSP <= "0001001";
+            when others => LEDDSP <= "0000000";
         end case;
     end process;
 end RTL;

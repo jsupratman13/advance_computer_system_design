@@ -8,10 +8,8 @@ entity HIGH3 is
 end HIGH3;
 
 architecture RTL of HIGH3 is
-    signal w0: std_logic;
 begin
-    w0 <= B and C;
-    Y <= A or w0;
+    Y <= ((B and C) or A);
 end RTL;
 
 
