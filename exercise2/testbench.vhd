@@ -19,7 +19,7 @@ architecture TESTBENCH of TBGATE is
     signal TB_OUT2: std_logic_vector(6 downto 0);
 
 begin
-    i0: KADA2 port map(CLK=>TB_IN(3), RSTN=>TB_IN(2), STARTN=>TB_IN(1), STOPN=>TB_IN(0), LEDH=>TB_OUT1, LEDL=>TB_OUT2);
+    i0: KADAI2 port map(CLK=>TB_IN(3), RSTN=>TB_IN(2), STARTN=>TB_IN(1), STOPN=>TB_IN(0), LEDH=>TB_OUT1, LEDL=>TB_OUT2);
     
     process begin
         TB_IN <= "1110"; wait for 100 ns;
