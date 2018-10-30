@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
 
 entity COUNT is
     port (
@@ -20,16 +21,16 @@ begin
             VAL1 <= "0000";
             VAL2 <= "000";
         elsif(CLK 'event and CLK = '1') then
-            if(VAL2 = "110") then
-                VAL1 <= "0000";
-                VAL2 <= "000";
-            end if;
-            if(VAL1 >= "1001") then
-                VAL1 <= "0000";
-                VAL2 <= VAL2 + 1;
-            end if;
-            if(ENABLE = '1') then
-                VAL1 <= VAL1 + 1;
+	        if(ENABLE = '1') then
+                if(VAL2 = "110") then
+                    VAL1 <= "0000";
+                    VAL2 <= "000";
+                elsif(VAL1 >= "1001") then
+                    VAL1 <= "0000";
+                    VAL2 <= VAL2 + 1;
+                else
+                    VAL1 <= VAL1 + 1;
+                end if;
             end if;
         end if;
     end process;

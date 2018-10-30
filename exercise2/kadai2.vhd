@@ -1,5 +1,5 @@
 library ieee;
-use iee.std_logic_1164.all;
+use ieee.std_logic_1164.all;
 
 entity KADAI2 is
     port (
@@ -7,8 +7,8 @@ entity KADAI2 is
         RSTN  : in std_logic;
         STARTN: in std_logic;
         STOPN : in std_logic;
-        LEDH  : out std_logic(6 downto 0);
-        LEDL  : out std_logic(6 downto 0));
+        LEDH  : out std_logic_vector(6 downto 0);
+        LEDL  : out std_logic_vector(6 downto 0));
 end KADAI2;
 
 architecture RTL of KADAI2 is 
@@ -42,6 +42,7 @@ architecture RTL of KADAI2 is
 begin
     i0: RATE port map( CLK=>CLK, RSTN=>RSTN, ENABLE=>FLAG);
     ENABLE <= (FLAG and STARTN) and STOPN;
+	 --i0: RATE port map( CLK=>CLK, RSTN=>RSTN, ENABLE=>ENABLE);
     i1: COUNT port map(CLK=>CLK, RSTN=>RSTN, ENABLE=>ENABLE, TENS=>TENS, ONES=>ONES);
     i2: DECODER port map(ONES=>ONES, TENS=>TENS, LEDL=>LEDL, LEDH=>LEDH);
 

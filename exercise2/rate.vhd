@@ -9,12 +9,12 @@ entity RATE is
         ENABLE : out std_logic);
 end RATE;
 
-architecture RTL of RATE is:
+architecture RTL of RATE is
     signal COUNT : std_logic_vector(25 downto 0);
-    constant MAXCOUNT : std_logic_vector(25 downto 0);
+    constant MAXCOUNT : std_logic_vector(25 downto 0)
                       := "10111110101111000010000000"; --50MHz
 --                      := "00000000000000000000000010"; --simulator
-    constant ZEROCOUNT: std_logic_vector(25 downto 0);
+    constant ZEROCOUNT: std_logic_vector(25 downto 0)
                       := "00000000000000000000000000";
 
 begin
