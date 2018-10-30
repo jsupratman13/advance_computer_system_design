@@ -34,15 +34,15 @@ architecture RTL of KADAI2 is
             LEDH : out std_logic_vector(6 downto 0));
     end component;
 
+    signal FLAG : std_logic;
     signal ENABLE : std_logic;
     signal TENS: std_logic_vector(2 downto 0);
     signal ONES: std_logic_vector(3 downto 0);
 
 begin
-    i0: RATE port map( CLK=>CLK, RSTN=>RSTN, ENABLE=>ENABLE);
+    i0: RATE port map( CLK=>CLK, RSTN=>RSTN, ENABLE=>FLAG);
+    ENABLE <= (FLAG and STARTN) and STOPN;
     i1: COUNT port map(CLK=>CLK, RSTN=>RSTN, ENABLE=>ENABLE, TENS=>TENS, ONES=>ONES);
     i2: DECODER port map(ONES=>ONES, TENS=>TENS, LEDL=>LEDL, LEDH=>LEDH);
-
-    --TODO: start stop
 
 end;
