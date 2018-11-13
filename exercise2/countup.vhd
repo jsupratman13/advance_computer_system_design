@@ -22,12 +22,12 @@ begin
             VAL2 <= "000";
         elsif(CLK 'event and CLK = '1') then
 	        if(ENABLE = '1') then
-                if(VAL2 = "110") then
-                    VAL1 <= "0000";
-                    VAL2 <= "000";
-                elsif(VAL1 >= "1001") then
+                if(VAL1 >= "1001") then
                     VAL1 <= "0000";
                     VAL2 <= VAL2 + 1;
+                    if(VAL2 >= "101") then
+                        VAL2 <= "000";
+                    end if;
                 else
                     VAL1 <= VAL1 + 1;
                 end if;
