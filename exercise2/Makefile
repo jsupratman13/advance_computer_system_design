@@ -1,9 +1,9 @@
-#KADAI
+# Source Files
 NETLIST    = kadai2.vhd countup.vhd decoder.vhd rate.vhd #oneshot.vhd
 TESTBENCH  = testbench.vhd
 NAME       = TBGATE
 
-#Library Flags
+# Library Flags
 SYNOSPSYS = --ieee=synopsys
 #MENTOR    = --ieee=mentor
 EXPLICIT  = -fexplicit
