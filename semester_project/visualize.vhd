@@ -8,8 +8,8 @@ entity VISUALIZE is
         CLK       : in std_logic;
         RSTN      : in std_logic;
         GRID      : in std_matrix;
-        LED_HIGH  : out std_logic_vector(3 downto 0);
-        LED_GND   : out std_logic_vector(3 downto 0));
+        LED_HIGH  : out std_logic_vector(15 downto 0);
+        LED_GND   : out std_logic_vector(15 downto 0));
 end VISUALIZE;
 
 architecture RTL of VISUALIZE is
@@ -19,7 +19,7 @@ architecture RTL of VISUALIZE is
             RSTN      : in std_logic;
             ENABLE    : in std_logic;
             GRID      : in std_matrix;
-            LED_OUT   : out std_logic_vector(3 downto 0);
+            LED_OUT   : out std_logic_vector(15 downto 0);
             LED_INDEX : out integer);
     end component;
    
@@ -32,15 +32,15 @@ architecture RTL of VISUALIZE is
 
     component DECODER
         port(
-            LED_IN    : in std_logic_vector(3 downto 0);
+            LED_IN    : in std_logic_vector(15 downto 0);
             LED_INDEX : in integer;
-            LED_HIGH  : out std_logic_vector(3 downto 0);
-            LED_GND   : out std_logic_vector(3 downto 0));
+            LED_HIGH  : out std_logic_vector(15 downto 0);
+            LED_GND   : out std_logic_vector(15 downto 0));
     end component;
     
     signal ENABLE : std_logic;
-    signal LED_OUT : std_logic_vector(3 downto 0);
-    signal LED_INDEX : integer := 3;
+    signal LED_OUT : std_logic_vector(15 downto 0);
+    signal LED_INDEX : integer := 15;
 
     begin
         i0 : LED_RATE port map(CLK=>CLK, RSTN=>RSTN, ENABLE=>ENABLE); 

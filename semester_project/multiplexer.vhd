@@ -9,21 +9,21 @@ entity MULTIPLEXER is
         RSTN      : in std_logic;
         ENABLE    : in std_logic;
         GRID      : in std_matrix;
-        LED_OUT   : out std_logic_vector(3 downto 0);
+        LED_OUT   : out std_logic_vector(15 downto 0);
         LED_INDEX : out integer);
 end MULTIPLEXER;
 
 architecture RTL of MULTIPLEXER is
-    constant RESET : std_logic_vector(3 downto 0) := "0000";
-    signal LED_ROW : std_logic_vector(3 downto 0);
-    signal INDEX   : integer := 4; 
+    constant RESET : std_logic_vector(15 downto 0) := "0000000000000000";
+    signal LED_ROW : std_logic_vector(15 downto 0);
+    signal INDEX   : integer := 16; 
     
     begin
         LED_INDEX <= INDEX;
         LED_OUT <= LED_ROW;
 
         process(INDEX) begin
-            if(INDEX < 4) then
+            if(INDEX < 16) then
                 LED_ROW <= GRID(INDEX);
             else
                 LED_ROW <= RESET;
@@ -32,12 +32,12 @@ architecture RTL of MULTIPLEXER is
  
         process(CLK, RSTN) begin
             if(RSTN = '0') then
-                INDEX <= 4;
+                INDEX <= 16;
             elsif(CLK 'event and CLK = '1') then
                 if(ENABLE = '1') then
                     INDEX <= INDEX - 1;
                     if (INDEX = 0) then
-                        INDEX <= 3;
+                        INDEX <= 15;
                     end if;
                 end if;
             end if;

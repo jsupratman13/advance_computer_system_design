@@ -12,10 +12,11 @@ end LED_RATE;
 architecture RTL of LED_RATE is
     signal COUNT : std_logic_vector(25 downto 0);
     constant MAXCOUNT : std_logic_vector(25 downto 0)
---                      := "10111110101111000010000000"; --50MHz
---                      := "01110010011100001110000000"; --30MHz
 --                      := "00100110001001011010000000"; --10MHz
-                      := "00000000000000000000000010"; --simulator
+--                      := "00000011110100001001000000"; --1MHz
+--                      := "00000000011000011010100000"; --100KHz
+							 := "00000000000010011100010000"; --10KHz
+--                      := "00000000000000000000000010"; --simulator
     constant ZEROCOUNT: std_logic_vector(25 downto 0)
                       := "00000000000000000000000000";
 
