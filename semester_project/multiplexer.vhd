@@ -30,7 +30,9 @@ architecture RTL of MULTIPLEXER is
                 for i in 15 downto 0 loop
                     if(GRID(INDEX, i) = 1) then
                         LED_ROW1(i) <= '1';
+                        LED_ROW2(i) <= '0';
                     elsif(GRID(INDEX, i) = 2) then
+                        LED_ROW1(i) <= '0';
                         LED_ROW2(i) <= '1';
                     elsif(GRID(INDEX, i) = 3) then
                         LED_ROW1(i) <= '1';
