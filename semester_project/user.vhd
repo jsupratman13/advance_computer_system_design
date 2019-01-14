@@ -29,14 +29,14 @@ architecture RTL of USER is
     signal FLAG    : integer := 0;
 
     begin
-        --i0: ONESHOT port map(CLK=>CLK, RSTN=>RSTN, SW=>CHGN, SWONE=>CHGNONE);
+        i0: ONESHOT port map(CLK=>CLK, RSTN=>RSTN, SW=>CHGN, SWONE=>CHGNONE);
         i1: ART port map(FLAG=>FLAG, GRID=>GRID);
 
-        process(CLK) begin
+        process(CLK, CHGNONE) begin
             if(CLK'event and CLK='1') then
-                if(CHGN = '0') then
+                if(CHGNONE = '0') then
                     FLAG <= FLAG + 1;
-                    if (FLAG = 2) then
+                    if (FLAG = 6) then
                         FLAG <= 0;
                     end if;
                 end if;
