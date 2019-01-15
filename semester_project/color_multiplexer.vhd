@@ -3,22 +3,22 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.led_matrix.all;
 
-entity COLOR_SWITCH is
+entity COLOR_MULTIPLEXER is
     port(
         CLK       : in std_logic;
         RSTN      : in std_logic;
         ENABLE    : in std_logic;
         LED_IN1   : in std_logic_vector(15 downto 0);
         LED_IN2   : in std_logic_vector(15 downto 0);
-        LED_OUT1 : out std_logic_vector(15 downto 0);
-        LED_OUT2 : out std_logic_vector(15 downto 0));
-end COLOR_SWITCH;
+        LED_OUT1  : out std_logic_vector(15 downto 0);
+        LED_OUT2  : out std_logic_vector(15 downto 0));
+end COLOR_MULTIPLEXER;
 
-architecture RTL of COLOR_SWITCH is
-    constant RESET : std_logic_vector(15 downto 0) := "0000000000000000";
+architecture RTL of COLOR_MULTIPLEXER is
+    constant RESET  : std_logic_vector(15 downto 0) := "0000000000000000";
     signal LED_ROW1 : std_logic_vector(15 downto 0);
     signal LED_ROW2 : std_logic_vector(15 downto 0);
-    signal FLAG   : std_logic := '0';
+    signal FLAG     : std_logic := '0';
     
     begin
         LED_OUT1 <= LED_ROW1;

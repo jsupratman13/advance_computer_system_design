@@ -158,7 +158,7 @@ architecture RTL of ART is
                 when 5 => GRID <= ART5;
                 when 6 => GRID <= ART6;
                 when others => GRID <= NO_ART;
-				end case;
+                end case;
         end process;
 
 end RTL;
